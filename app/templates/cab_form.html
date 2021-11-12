@@ -1,0 +1,53 @@
+{% from "_render_field.html" import render_field %}
+{% extends 'base.html' %}
+{% block content %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<div class="container">
+    {% for category, message in messages %}
+    <div class="alert alert-primary" role="alert">
+        {{ message }}
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
+<h1 class="text-center">Form cabinet</h1>
+<h2>{{ error }}</h2>
+<form method="POST">
+    {{ form.csrf_token }}
+
+    {{ render_field(form.email) }}
+
+    {{ render_field(form.password1) }}
+
+    {{ render_field(form.password2) }}
+
+    {{ render_field(form.number) }}
+
+    {{ render_field(form.year) }}
+
+    {{ render_field(form.pin) }}
+
+    {{ render_field(form.serial) }}
+
+    {% if serialerr %}
+    <ul>
+        <li style="color:red;">{{ serialerr }}</li>
+    </ul>
+    {% endif %}
+
+    {{ render_field(form.number_doc) }}
+
+    <p></p>
+
+    {% if numdocerror %}
+    <ul>
+        <li style="color:red;">{{ numdocerror }}</li>
+    </ul>
+    {% endif %}
+    <p></p>
+
+    <input type="submit" value="Sumbit">
+</form>
+{% endblock %}

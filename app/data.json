@@ -1,0 +1,18 @@
+{
+    "svyatoslav@asd.com": {
+        "password": "qwertyu",
+        "number": "1234567",
+        "pin": "1234",
+        "year": "2020",
+        "serial": "A45",
+        "number_doc": "12345678"
+    },
+    "student1@sasd.com": {
+        "password": "123456",
+        "number": "1234567",
+        "pin": "1234",
+        "year": "2013",
+        "serial": "AE",
+        "number_doc": "435678"
+    }
+}
