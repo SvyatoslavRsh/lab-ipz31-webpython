@@ -4,7 +4,6 @@ from flask import current_app as app
 from datetime import datetime
 
 
-
 @app.route("/blog")
 def blog():
     news_dict = {
@@ -35,7 +34,3 @@ def aboutme():
     return render_template("aboutme.html", boolean=False, name='Svyatoslav', error='Wrong data',
                            sys_info=request.headers.get('User-Agent'), sys=sys.version, os_name=os.name,
                            platform=platform.system(), release=platform.release(), date=datetime.now())
-
-
-
-

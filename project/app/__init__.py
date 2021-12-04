@@ -33,4 +33,7 @@ def create_app(config_name='default'):
         from .reg_cabinet import cabinet_blueprint
         app.register_blueprint(cabinet_blueprint, url_prefix='/regcabinet')
 
+        from .flight import flight_blueprint
+        app.register_blueprint(flight_blueprint, url_prefix='/flight')
+
         return app

@@ -1,0 +1,59 @@
+{% from "_render_field.html" import render_field %}
+{% extends 'base.html' %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">
+
+<section class="our-webcoderskull padding-lg">
+    <div class="container">
+        <div class="row heading heading-icon">
+            <h2>Flights</h2>
+        </div>
+        <ul class="row">
+            <li class="">
+                <div class="cnt-block equal-hight" style="height: 400px;">
+                    <h3>{{ flight.point_departure }} - {{ flight.point_destination }}</h3>
+                    <p>Flight number: #{{ flight.flight_number }}</p>
+                    <ul class="follow-us clearfix">
+                        <li>Price: {{ flight.price }}$</li>
+                    </ul>
+                    <ul class="follow-us clearfix">
+                        <li>Type route: {{ flight.type.value }}</li>
+                    </ul>
+                    <ul class="follow-us clearfix">
+                        <li>Travel time: {{ flight.travel_time }}</li>
+                    </ul>
+                    <ul class="follow-us clearfix">
+                        <li>Travel time: {{ flight.departure_date }}</li>
+                    </ul>
+                    <ul class="follow-us clearfix">
+                        <li>Travel time: {{ flight.departure_time }}</li>
+                    </ul>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
+                    <a href="{{ url_for('flight.upd_flight', fli=flight.id) }}"><button class="btn btn-primary">Edit</button></a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete institution</h5>
+                <button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                del?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <form action="{{ url_for('flight.del_flight', id=flight.id) }}" method="POST"> <!-- delete !-->
+                    <button class="btn btn-danger" type="submit">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

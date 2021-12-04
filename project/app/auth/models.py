@@ -1,6 +1,6 @@
 from .. import db, bcrypt, login_manager
 from flask_login import UserMixin
-
+import enum
 
 @login_manager.user_loader
 def user_loader(user_id):
@@ -13,6 +13,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(120), unique=True, nullable=False)
     image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
     password = db.Column(db.String(60), nullable=False)
+    #institutions = db.relationship('Flight', backref='flight', lazy=True)
 
     def __init__(self, username, email, password, image_file='default.jpg'):
         self.username = username
@@ -25,3 +26,4 @@ class User(db.Model, UserMixin):
 
     def __repr__(self):
         return f"User('{self.username}', '{self.email}', '{self.password}')"
+

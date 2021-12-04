@@ -1,0 +1,72 @@
+{% from "_render_field.html" import render_field %}
+{% extends 'base.html' %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">
+<form class="form-horizontal" method="POST">
+     {{ form.csrf_token }}
+    <div class="blockadd">
+        <div class="blockaddm">
+            <fieldset>
+                <div id="legend">
+                    <legend class="">{{ UD }}</legend>
+                </div>
+
+                <div class="control-group">
+                    <div class="controls">
+                        {{ render_field(form.flight_number) }}
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="controls">
+                        {{ render_field(form.point_departure) }}
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="controls">
+                        {{ render_field(form.point_destination) }}
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="controls">
+                        {{ render_field(form.departure_date) }}
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="controls">
+                        {{ render_field(form.departure_time) }}
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="controls">
+                        {{ render_field(form.travel_time) }}
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="controls">
+                        {{ render_field(form.route_type) }}
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="controls">
+                        {{ render_field(form.price) }}
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <!-- Button -->
+                    <div class="controls">
+                        <button class="btn btn-success">{{ UD }}</button>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</form>
+{% endblock %}
