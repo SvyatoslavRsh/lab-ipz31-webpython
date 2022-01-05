@@ -36,4 +36,7 @@ def create_app(config_name='default'):
         from .flight import flight_blueprint
         app.register_blueprint(flight_blueprint, url_prefix='/flight')
 
+        from .api import api_blueprint
+        app.register_blueprint(api_blueprint, url_prefix='/api')
+
         return app
